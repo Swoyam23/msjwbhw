@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+#gameText {
+    position: absolute;
+    bottom: 10%;
+    color: white;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
