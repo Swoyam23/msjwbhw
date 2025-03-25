@@ -153,6 +153,39 @@ function drawPlayer() {
     ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 
+let playerHealth = 100;  // Health of Miss Universe
+let caExamHealth = 100;  // Health of CA Exam
+
+// Draw Health Bars
+function drawHealthBars() {
+    // Player health bar
+    ctx.fillStyle = "green";
+    ctx.fillRect(10, 10, playerHealth * 2, 20); // Player health bar (green)
+
+    // CA Exam health bar
+    ctx.fillStyle = "red";
+    ctx.fillRect(WIDTH - 210, 10, caExamHealth * 2, 20); // CA Exam health bar (red)
+}
+
+// Update Health and Handle Combat
+function handleCombat() {
+    if (player.x < 300 && player.x > 200 && player.y < 200 && player.y > 100) {
+        caExamHealth -= 1; // Example of attacking CA Exam by decreasing health
+    }
+}
+
+// Call handleCombat inside the fightCAExam function
+function fightCAExam() {
+    gameText.innerText = "CA Exam: The final test! Defeat me!";
+    ctx.fillStyle = "red";
+    ctx.fillRect(300, 100, 200, 100); // Drawing the CA Exam
+
+    // Handle combat with CA Exam
+    handleCombat();
+    drawHealthBars();
+}
+
+
 // Key event listeners for player movement
 let keyState = {};
 document.addEventListener("keydown", (e) => {
